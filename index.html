@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Countdown timer</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <!-- title quote-->
+    <div class="quote-container"><h1>Good things take time</h1></div>
+
+    <!-- countdown timer -->
+    <div id="countdown" class="countdown-container">
+      <div class="element-container">
+        <p class="big-text" id="day">0</p>
+        <span>days</span>
+      </div>
+      <div class="element-container">
+        <p class="big-text" id="hour">0</p>
+        <span>hours</span>
+      </div>
+      <div class="element-container">
+        <p class="big-text" id="min">0</p>
+        <span>minutes</span>
+      </div>
+      <div class="element-container">
+        <p class="big-text" id="sec">0</p>
+        <span>seconds</span>
+      </div>
+    </div>
+
+    <div id="broke"></div>
+
+    <!-- modal hidden by default -->
+    <div class="modal-container" id="modal_container">
+      <div class="modal">
+        <div class="date-selector">
+          <div class="year-selector">
+            <div class="arrow" id="previous-year">&lt;</div>
+            <div class="year-width" id="year-value"></div>
+            <div class="arrow" id="next-year">&gt;</div>
+          </div>
+          <div class="month-selector">
+            <div class="arrow" id="previous-month">&lt;</div>
+            <div class="month-width" id="month-value"></div>
+            <div class="arrow" id="next-month">&gt;</div>
+          </div>
+          <div class="day-selector">
+            <div class="arrow" id="previous-day">&lt;</div>
+            <div class="day-width" id="day-value"></div>
+            <div class="arrow" id="next-day">&gt;</div>
+          </div>
+        </div>
+
+        <div class="time-selector">
+          <div class="time-margin">
+            <div class="arrow-up" id="next-hour">&lt;</div>
+            <div class="time-position" id="hour-value"></div>
+            <div class="arrow-down" id="previous-hour">&gt;</div>
+          </div>
+          <div class="time-margin">
+            <div class="arrow-up" id="next-minute">&lt;</div>
+            <div class="time-position" id="minute-value"></div>
+            <div class="arrow-down" id="previous-minute">&gt;</div>
+          </div>
+        </div>
+
+        <button id="close"><span class="skull"> 💀</span></button>
+      </div>
+    </div>
+  </body>
+</html>
