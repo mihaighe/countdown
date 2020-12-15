@@ -13,7 +13,9 @@ close.addEventListener("click", () => {
   dateInput = `${year}-${fv(month + 1)}-${fv(day)}T${fv(hour)}:${fv(
     minute
   )}:00`;
-  console.log(dateInput);
+
+  localStorage.setItem("countdownDate", new Date(dateInput).getTime());
+  localStorage.setItem("countdownMessage", myMessage.value);
 
   clearInterval(myInterval);
   myInterval = setInterval(countdownTimer, 1000);
@@ -25,6 +27,7 @@ const monthValue = document.getElementById("month-value");
 const dayValue = document.getElementById("day-value");
 const hourValue = document.getElementById("hour-value");
 const minuteValue = document.getElementById("minute-value");
+const myMessage = document.getElementById("messageInput");
 
 const previousYear = document.getElementById("previous-year");
 const nextYear = document.getElementById("next-year");
@@ -68,6 +71,7 @@ yearValue.textContent = year;
 dayValue.textContent = day;
 hourValue.textContent = fv(hour);
 minuteValue.textContent = fv(minute);
+myMessage.value = localStorage.getItem("countdownMessage");
 
 goToNextYear = () => {
   year++;
@@ -174,15 +178,21 @@ const dayElement = document.getElementById("day");
 const hourElement = document.getElementById("hour");
 const minElement = document.getElementById("min");
 const secElement = document.getElementById("sec");
-const brokeElement = document.getElementById("broke");
+const messageElement = document.getElementById("messageText");
 
-var dateInput = `2023-08-10T12:00:00`;
+var now = new Date().getTime();
+if (localStorage.getItem("countdownDate") == null) {
+  var dateInput = now + 86400000000;
+  localStorage.setItem("countdownDate", dateInput);
+}
+
+if (localStorage.getItem("countdownMessage") == null) {
+  localStorage.setItem("countdownMessage", "Your deadline title goes in here");
+}
 
 countdownTimer = () => {
-  var countDownDate = new Date(dateInput).getTime();
-
   var now = new Date().getTime();
-  var time = countDownDate - now;
+  var time = localStorage.getItem("countdownDate") - now;
 
   const day = Math.floor(time / (1000 * 60 * 60 * 24));
   const hour = Math.floor((time % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
@@ -194,16 +204,16 @@ countdownTimer = () => {
     hourElement.innerHTML = fv(hour);
     minElement.innerHTML = fv(min);
     secElement.innerHTML = fv(sec);
-    brokeElement.innerHTML = "";
+    messageElement.innerHTML = localStorage.getItem("countdownMessage");
   } else {
-    dayElement.innerHTML = '00';
-    hourElement.innerHTML = '00';
-    minElement.innerHTML = '00';
-    secElement.innerHTML = '00';
-    brokeElement.innerHTML = "<h1>... and time goes only in one direction</h1>";
+    dayElement.innerHTML = "00";
+    hourElement.innerHTML = "00";
+    minElement.innerHTML = "00";
+    secElement.innerHTML = "00";
+    messageElement.innerText =
+      "...you just tried to travel back in time, don't you?";
   }
 
-  console.log(Math.floor(time / 1000));
   if (Math.floor(time / 1000) < 1) {
     clearInterval(myInterval);
   }

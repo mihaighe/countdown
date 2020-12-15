@@ -5,8 +5,7 @@
 }
 
 html {
-  background: url("https://images.unsplash.com/photo-1542273917363-3b1817f69a2d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9")
-    no-repeat center center fixed;
+  background: url("/content/Forest.jpeg") no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -36,12 +35,18 @@ button {
   text-decoration: none;
   transition: all 0.2s;
 
+
+  border: 2px solid black;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+
+  
   color: black;
   background-color: transparent;
-  border: 0.1em solid black;
 }
 
 .countdown-container {
+  margin-top: 200px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -177,4 +182,25 @@ button {
 
 .time-margin {
   margin: 3px;
+}
+
+#messageInput {
+  outline: none;
+  background-color: rgba(255, 255, 255, 0);
+  text-align: center;
+  border: 2px solid black;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  padding: 4px;
+  width: 100%;
+  margin-bottom: 12px;
+  font-size: 17px;
+  font-weight: bold;
+  font-family: "Megrim", cursive;
+}
+
+#messageText {
+  margin-top: 15px;
+  font-weight: bold;
+  font-size: 40px;
 }

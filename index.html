@@ -3,35 +3,35 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Countdown timer</title>
+    <title>Countdown</title>
     <link rel="stylesheet" href="style.css" />
+    <link rel="icon" href="/content/icon.png" />
     <script src="script.js" defer></script>
   </head>
   <body>
-    <!-- title quote-->
-    <div class="quote-container"><h1>Good things take time</h1></div>
 
     <!-- countdown timer -->
     <div id="countdown" class="countdown-container">
       <div class="element-container">
-        <p class="big-text" id="day">0</p>
+        <p class="big-text" id="day">999</p>
         <span>days</span>
       </div>
       <div class="element-container">
-        <p class="big-text" id="hour">0</p>
+        <p class="big-text" id="hour">23</p>
         <span>hours</span>
       </div>
       <div class="element-container">
-        <p class="big-text" id="min">0</p>
+        <p class="big-text" id="min">59</p>
         <span>minutes</span>
       </div>
       <div class="element-container">
-        <p class="big-text" id="sec">0</p>
+        <p class="big-text" id="sec">59</p>
         <span>seconds</span>
       </div>
     </div>
 
-    <div id="broke"></div>
+    <div id="messageText">Your deadline title goes in here</div>
+
 
     <!-- modal hidden by default -->
     <div class="modal-container" id="modal_container">
@@ -66,6 +66,8 @@
             <div class="arrow-down" id="previous-minute">&gt;</div>
           </div>
         </div>
+
+        <input type="text" id="messageInput">
 
         <button id="close"><span class="skull"> 💀</span></button>
       </div>
